@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FruitBazar.Models.Fruit>
+@{
+    ViewData["Title"] = "Fruits";
+}
+
+<h1 class="border-bottom">All Fruit</h1>
+<form style="width: 100px">
+    <select class="form-control">
+        <option>A to Z</option>
+        <option>Session</option>
+        <option>Price</option>
+        <option>All</option>
+    </select>
+</form>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="card fruits-sample">
+                <div class="card-body">
+                    <a asp-action="FruitDetails" asp-route-id="@item.id">
+                        <img src="~/@item.fruit_img" class="card-img" />
+                        <div class="card-text text-center">
+                            <strong>@item.fruit_name</strong>
+                            <div class="card-subtitle">
+                                @item.fruit_unit / @item.fruit_price TK.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

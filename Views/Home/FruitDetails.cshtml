@@ -1,0 +1,50 @@
+﻿@model FruitBazar.Models.Fruit
+
+@{
+    ViewData["Title"] = "Fruit Details";
+    var fruitquantity = 0;
+}
+
+<h1 class="border-bottom mb-3">Fruit Details</h1>
+<p id="cart"></p>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <img src="~/@Model.fruit_img" class="card-img" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var x, n = 0,t;
+        function myFunction(x) {
+            if (x == "Increase") {
+                document.getElementById("quantity").innerHTML = ++n;
+                document.getElementById("totalprice").innerHTML = n * @Model.fruit_price;
+                @Model.fruit_price = n * @Model.fruit_price;
+            }
+
+            if (x == "Decrease" && n > 1) {
+                document.getElementById("quantity").innerHTML = --n;
+                document.getElementById("totalprice").innerHTML = n * @Model.fruit_price;
+            }
+        }
+        //@fruitquantity = n;
+    </script> 
+
+
+    <div class="col-md-4">
+        <h3>Fruit Name: @Model.fruit_name</h3>
+        <h5>Unit Price: @Model.fruit_price TK / @Model.fruit_unit</h5>
+        <div class="form-inline">
+            <label>Give an amount: </label>
+            <button class="btn btn-outline-danger" onclick="myFunction('Decrease')">-</button>&emsp;
+            <p id="quantity"></p>&emsp;
+            <button class="btn btn-outline-primary" onclick="myFunction('Increase')">+</button>
+        </div><br />
+        Total Price:<h5 id="totalprice"></h5>
+        <a type="submit" id="buy" asp-action="ShoppingCart" asp-route-fruitname ="@Model.fruit_name" asp-route-quantity="@fruitquantity" asp-route-price="@Model.fruit_price"  class="btn btn-block btn-danger">Buy Now</a>
+        <p id="demo"></p>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FruitBazar.Models.ShoppingCart>
+
+@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+<h1 class="border-bottom">Shopping Cart</h1>
+<h6>Order ID: @ViewData["MAC"]</h6>
+<table class="table table-responsive-sm table-borderless table-hover border-bottom">
+    <thead>
+        <tr class="text-center">
+            <th>ID</th>
+            <th>@Html.DisplayNameFor(Model => Model.fruit_name)</th>
+            <th>@Html.DisplayNameFor(Model => Model.quantity)</th>
+            <th>@Html.DisplayNameFor(Model => Model.price)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="text-center">
+                <td>@item.id</td>
+                <td>@item.fruit_name</td>
+                <td>@item.quantity</td>
+                <td>@item.price</td>
+                <td><a class="btn btn-outline-danger" asp-action="DeleteItem" asp-route-id="@item.id">Remove</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-sm-7">
+        Delivary Cost: 50/= (Inside of Dhaka) <br />Delivary Cost: 100/= (Outside of Dhaka)
+    </div>
+    <div class="col-sm-5">
+        Total Price: 2400Tk.
+    </div>
+</div>
+
+
+
+<a asp-controller="Home" asp-action="Delivary" class="btn btn-outline-primary float-right">Go To Delivary</a>

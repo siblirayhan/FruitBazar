@@ -1,0 +1,47 @@
+﻿@model FruitBazar.Models.GetInTouch
+@{
+    ViewData["Title"] = "About Fruit Bazar";
+}
+    <div >
+        <h1 class="border-bottom">@ViewData["Title"]</h1>
+
+        <p>Fruit Bazar is the online fruit shop in Bangladesh. It is a fruit supplier and distributor company all over the Bangladesh. We supply and provide the fresh food to customers. The Head Office of Fruit Bazar situate in Gazipur, Dhaka.</p>
+
+    </div>
+    <div class="bg-light">
+        <h1 class="border-bottom">Contact Information</h1>
+        <div class="row">
+            <div class="col-sm-2">
+                <span class="badge">Email: </span><br />
+                <span class="badge">Phone Number: </span><br />
+                <span class="badge">Address: </span>
+            </div>
+            <div class="col-sm-5">
+                fruitbazar@info.com<br />
+                +88015*********<br />
+                Home-123, Road-02<br />
+                Telepara, Gazipur-1703<br />
+                Gazipur, Dhaka, Bangladesh.<br />
+            </div>
+        </div>
+
+    </div>
+<div class="">
+    <h1 class="border-bottom">Get in Touch</h1>
+    <form asp-action="About">
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" asp-for="name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Email address:</label>
+            <input type="email" asp-for="email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Message:</label>
+            <textarea style="height: 250px" asp-for="message" placeholder="Write your message..." class="form-control" ></textarea>
+        </div>
+        <button class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>
+

@@ -1,0 +1,54 @@
+﻿<h1 class="border-bottom">Delivary</h1>
+<h2 class="border-bottom">Customer Information</h2>
+
+<form>
+    <h6>Customer ID: @DateTime.Now</h6>
+    <div class="form-group">
+        <label>Customer Name:</label>
+        <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Customer Email:</label>
+        <input type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Customer Phone Number:</label>
+        <input type="number" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Customer Address:</label>
+        <textarea class="form-control" style="height: 150px"></textarea>
+    </div>
+
+    <div class="form-inline border-bottom" style="margin-bottom: 20px">
+        <h2>Payment</h2>&emsp;<img src="~/mastercard.png" class="card-img" style="height:30px; width: 40px" /><img src="~/visacard.jpg" style="height:30px; width: 40px" /><img src="~/bkash.png" style="height:30px; width: 40px" /><img src="~/rocket.jpg" style="height:30px; width: 40px" />
+    </div>
+    <ul class="nav nav-tabs nav-justified">
+        <li class="nav-item">
+            <a class="nav-item nav-link active">Card</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="bKashRocket()">bKash/Rocket DBBL</a>
+        </li>
+    </ul>
+    
+    <div class="tab-pane fade show active">
+        <div class="tab-pane">
+            <div class="form-group">
+                <label>Card holder name:</label>
+                <input type="text" class="form-control col-6" />
+            </div>
+            <div class="form-group">
+                <label>Card Number:</label>
+                <input type="number" class="form-control col-6" />
+            </div>
+            <div class="form-group">
+                <label>CVV:</label>
+                <input type="number" class="form-control col-2" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<a asp-controller="Home" asp-action="" class="btn btn-outline-primary">Submit</a>
+<a asp-controller="Home" asp-action="" class="btn btn-outline-primary">Cancel</a>
